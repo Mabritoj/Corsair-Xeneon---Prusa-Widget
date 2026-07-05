@@ -1,0 +1,24 @@
+{
+	"en": {
+		"translation": {
+			"Prusa Status": "Prusa Status",
+			"Connection": "Connection",
+			"Printer": "Printer",
+			"Appearance": "Appearance",
+			"Printer Name": "Printer Name",
+			"Printer IP Address": "Printer IP Address",
+			"API Key": "API Key",
+			"Username": "Username",
+			"Bridge Port": "Bridge Port",
+			"Poll Interval (seconds)": "Poll Interval (seconds)",
+			"Accent Color": "Accent Color",
+			"Text Color": "Text Color",
+			"Background Color": "Background Color",
+			"Name this printer for multi-tile setups. Set IP, API key, and bridge port.": "Name this printer for multi-tile setups. Set IP, API key, and bridge port.",
+			"Your printer IP on the local network, e.g. 192.168.1.50.": "Your printer IP on the local network, e.g. 192.168.1.50.",
+			"PrusaLink API key (digest password).": "PrusaLink API key (digest password).",
+			"Digest username. Leave empty for most printers; use maker on MK4/XL.": "Digest username. Leave empty for most printers; use maker on MK4/XL.",
+			"Port and poll interval for the local bridge.": "Port and poll interval for the local bridge."
+		}
+	}
+}

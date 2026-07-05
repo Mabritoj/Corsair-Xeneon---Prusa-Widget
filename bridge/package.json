@@ -1,0 +1,7 @@
+{
+	"name": "prusa-status-bridge",
+	"version": "1.0.0",
+	"private": true,
+	"type": "module",
+	"description": "Local bridge for Prusa Status iCUE widget"
+}

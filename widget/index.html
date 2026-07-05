@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>tr('Prusa Status')</title>
+		<link rel="icon" type="image/svg+xml" href="resources/icon.svg">
+		<link rel="stylesheet" href="styles/style.css">
+
+		<meta
+			name="x-icue-property"
+			content="printerName"
+			data-label="tr('Printer Name')"
+			data-type="textfield"
+			data-default="''"
+		>
+		<meta
+			name="x-icue-property"
+			content="printerIp"
+			data-label="tr('Printer IP Address')"
+			data-type="textfield"
+			data-default="''"
+		>
+		<meta
+			name="x-icue-property"
+			content="apiKey"
+			data-label="tr('API Key')"
+			data-type="textfield"
+			data-default="''"
+		>
+		<meta
+			name="x-icue-property"
+			content="apiUser"
+			data-label="tr('Username')"
+			data-type="textfield"
+			data-default="''"
+		>
+		<meta
+			name="x-icue-property"
+			content="bridgePort"
+			data-label="tr('Bridge Port')"
+			data-type="textfield"
+			data-default="'37655'"
+		>
+		<meta
+			name="x-icue-property"
+			content="pollSeconds"
+			data-label="tr('Poll Interval (seconds)')"
+			data-type="textfield"
+			data-default="'30'"
+		>
+		<meta
+			name="x-icue-property"
+			content="accentColor"
+			data-label="tr('Accent Color')"
+			data-type="color"
+			data-default="'#FA6831'"
+		>
+		<meta
+			name="x-icue-property"
+			content="textColor"
+			data-label="tr('Text Color')"
+			data-type="color"
+			data-default="'#F5F4F2'"
+		>
+		<meta
+			name="x-icue-property"
+			content="backgroundColor"
+			data-label="tr('Background Color')"
+			data-type="color"
+			data-default="'#1B1A19'"
+		>
+
+		<script type="application/json" id="x-icue-groups">
+			[
+				{
+					"title": "tr('Connection')",
+					"properties": ["printerName", "printerIp", "apiKey", "apiUser", "bridgePort", "pollSeconds"],
+					"info": "tr('Name this printer for multi-tile setups. Set IP, API key, and bridge port.')"
+				},
+				{ "title": "tr('Appearance')", "properties": ["accentColor", "textColor", "backgroundColor"] }
+			]
+		</script>
+	</head>
+	<body>
+		<div id="widget" class="widget">
+			<header class="head">
+				<h1 id="display-name" class="display-name">Prusa Printer</h1>
+				<span id="status-chip" class="status-chip" title="">Live</span>
+			</header>
+
+			<section class="meta">
+				<span id="state-badge" class="state-badge state-idle">Idle</span>
+				<p id="file-name" class="file-name" title="">—</p>
+			</section>
+
+			<section class="stats">
+				<div class="stat-chip">
+					<span class="stat-label">Time left</span>
+					<span id="time-left" class="stat-value">—</span>
+				</div>
+				<div class="stat-chip">
+					<span class="stat-label">Nozzle</span>
+					<span id="nozzle-temp" class="stat-value">—</span>
+				</div>
+				<div class="stat-chip">
+					<span class="stat-label">Bed</span>
+					<span id="bed-temp" class="stat-value">—</span>
+				</div>
+			</section>
+
+			<div id="progress-bar" class="progress-bar hidden">
+				<div class="progress-track-bottom">
+					<div id="progress-fill" class="progress-fill"></div>
+				</div>
+				<span id="progress-label" class="progress-label"></span>
+			</div>
+
+			<div id="message" class="message hidden"></div>
+		</div>
+
+		<script>
+			window.icueEvents = {
+				onICUEInitialized: function () {
+					if (window.PrusaWidget) window.PrusaWidget.start();
+				},
+				onDataUpdated: function () {
+					if (window.PrusaWidget) window.PrusaWidget.onDataUpdated();
+				},
+			};
+		</script>
+		<script src="scripts/widget.js"></script>
+	</body>
+</html>
